@@ -1,6 +1,5 @@
-# 周杰倫情緒點歌系統（可直接部署 Streamlit）
+# 周杰倫情緒點歌系統（不含 snownlp，適用 Streamlit Cloud 部署）
 import streamlit as st
-from snownlp import SnowNLP
 import random
 import openai
 import os
@@ -59,7 +58,7 @@ emotion_song_map = {
     ]
 }
 
-# --- GPT 分析函式 ---
+# --- GPT 情緒判斷 ---
 def gpt_emotion_classifier(text):
     prompt = f"""你是一位情緒分析專家，請根據以下使用者描述判斷其當前心情狀態。
 請你只回覆以下七個類別之一：開心、傷心、平淡、戀愛、生氣、焦慮、孤單。
@@ -74,14 +73,11 @@ def gpt_emotion_classifier(text):
             max_tokens=10
         )
         emotion = response.choices[0].message['content'].strip()
-        if emotion in emotion_song_map:
-            return emotion
-        else:
-            return rule_based_emotion_classifier(text)
+        return emotion if emotion in emotion_song_map else rule_based_emotion_classifier(text)
     except:
         return rule_based_emotion_classifier(text)
 
-# --- 備援：規則法 ---
+# --- 簡化版規則備援 ---
 def rule_based_emotion_classifier(text):
     text = text.lower()
     if any(word in text for word in ["愛", "喜歡", "戀愛", "幸福"]):
@@ -97,15 +93,9 @@ def rule_based_emotion_classifier(text):
     elif any(word in text for word in ["開心", "快樂", "高興"]):
         return "開心"
     else:
-        score = SnowNLP(text).sentiments
-        if score > 0.7:
-            return "開心"
-        elif score < 0.3:
-            return "傷心"
-        else:
-            return "平淡"
+        return "平淡"
 
-# --- 建議語句函式 ---
+# --- 建議語句 ---
 def gpt_emotion_suggestion(text, emotion):
     prompt = f"你是一位溫暖的 AI 心情導師，使用者剛剛輸入了以下文字：「{text}」，我們判斷他現在的心情是「{emotion}」。請用一句親切的中文話語給出簡短鼓勵或陪伴建議，語氣自然、不要說你是 AI，也不要重複情緒詞。"
     try:
@@ -119,13 +109,13 @@ def gpt_emotion_suggestion(text, emotion):
     except:
         return "希望你今天過得更順利一點，加油！"
 
-# --- Session 初始值 ---
+# --- Session 狀態 ---
 if 'last_emotion' not in st.session_state:
     st.session_state.last_emotion = None
 if 'last_song' not in st.session_state:
     st.session_state.last_song = None
 
-# --- 分析區 ---
+# --- 分析並推薦 ---
 if st.button("🎵 開始分析"):
     if user_input.strip() == "":
         st.warning("請輸入內容後再按下按鈕喔！")
