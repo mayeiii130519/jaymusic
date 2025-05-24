@@ -6,8 +6,8 @@ import os
 from dotenv import load_dotenv
 
 # --- 初始化 ---
-st.set_page_config(page_title="周杰倫情緒點歌系統", page_icon="🎧")
-st.title("🎧 AI 周杰倫歌曲推薦系統")
+st.set_page_config(page_title="AI JAYBOX", page_icon="🎧")
+st.title("🎧 AI JAYBOX")
 
 # --- 載入 OpenAI 金鑰 ---
 load_dotenv()
