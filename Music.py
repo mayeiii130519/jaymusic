@@ -49,7 +49,7 @@ emotion_song_map = {
     "焦慮": [
         {"title": "夜的第七章", "youtube": "https://www.youtube.com/watch?v=AdkkF6MT0R0", "lyrics": "黑夜的第七章..."},
         {"title": "止戰之殤", "youtube": "https://www.youtube.com/watch?v=qIZ5MAwbeCg", "lyrics": "鮮血染紅了鴿子的翅膀..."},
-        {"title": "黑色幽默", "youtube": "https://www.youtube.com/watch?v=wRT-5heURhY", "lyrics": "原來你是我最想留住的幸運..."},
+        {"title": "黑色幽默", "youtube": "https://www.youtube.com/watch?v=wRT-5heURhY", "lyrics": "敗給你的黑色幽默..."},
     ],
     "孤單": [
         {"title": "擱淺", "youtube": "https://www.youtube.com/watch?v=YJfHuATJYsQ", "lyrics": "那種感覺像擱淺..."},
