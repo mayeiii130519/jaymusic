@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>張鈺玫的小天地</title>
+  <style>
+
+我想在最下方放我的個人網站，首頁的選單也幫我加入"WEBSITE"
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Helvetica Neue", sans-serif;
+      background-color: #f2f2f2;
+    }
+
+    /* 導覽列 */
+    nav {
+      width: 100%;
+      background-color: #ffffffcc;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 999;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 2px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      backdrop-filter: blur(10px);
+    }
+
+    nav .logo {
+      font-weight: bold;
+      font-size: 20px;
+      color: #333;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #6c9f68;
+    }
+
+    /* Hero 區塊 */
+    .hero-section {
+      display: flex;
+      height: 100vh;
+      background-color: #dbead5;
+      position: relative;
+      padding-top: 70px;
+    }
+
+    .hero-image {
+  flex: 1;
+  background-image: url('IMG_8576.jpg'); /* 改成你真實照片檔名 */
+  background-size: cover;
+  background-position: center;
+}
+
+
+    .hero-text {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+    }
+
+    .text-box {
+      background-color: white;
+      padding: 40px;
+      max-width: 400px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      border: 6px solid #fff;
+    }
+
+    .text-box h1 {
+      font-size: 2em;
+      line-height: 1.4;
+      color: #222;
+    }
+
+    .text-box a {
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+      color: #000;
+      font-weight: bold;
+      border-bottom: 1px solid #000;
+    }
+
+    /* ABOUT 區塊 */
+    #about {
+      background-color: #e7e1f2;
+      padding: 100px 30px;
+    }
+
+    #about .container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      max-width: 1100px;
+      margin: auto;
+      gap: 40px;
+    }
+
+    #about img {
+      width: 100%;
+      display: block;
+      border-radius: 6px;
+    }
+
+    /* PORTFOLIO 區塊 */
+    #portfolio {
+      background-color: #fff;
+      padding: 80px 30px;
+      text-align: center;
+    }
+
+    #portfolio img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    /* CONTACT 區塊 */
+    #contact {
+      background-color: #fff;
+      padding: 100px 30px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #contact .box {
+      max-width: 1000px;
+      margin: auto;
+      border: 1px solid #eee;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    #contact input, #contact textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+    <section id="website" style="background-color:#f6f6f6; padding: 100px 30px; text-align: center;">
+  <h2 style="font-size: 26px; color: #222;">個人網站</h2>
+  <p style="color: #555;">點擊下方圖片查看我設計的個人網站</p>
+  <a href="https://mayeiii130519.github.io/" target="_blank">
+    <img src="your-website-preview.jpg" alt="個人網站預覽圖" style="margin-top: 20px; width: 90%; max-width: 600px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+  </a>
+</section>
+
+  </style>
+</head>
+<body>
+
+  <nav>
+  <div class="logo">張鈺玫</div>
+  <ul>
+    <li><a href="#about">ABOUT</a></li>
+    <li><a href="#portfolio">作品集</a></li>
+    <li><a href="#contact">CONTACT</a></li>
+    <li><a href="#website">WEBSITE</a></li>
+  </ul>
+</nav>
+
+
+  <section class="hero-section">
+    <div class="hero-image"></div>
+    <div class="hero-text">
+      <div class="text-box">
+        <h1>May<br>Your day shine Bright</h1>
+        <a href="#about">Get in Touch →</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <div style="flex: 1; min-width: 300px;">
+        <div style="position: relative; padding: 10px; background: white; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+          <img src="IMG_8576.jpg" alt="關於我圖片">
+        </div>
+      </div>
+      <div style="flex: 1; min-width: 300px;">
+        <h2 style="color: #222; font-size: 24px; margin-bottom: 10px;">MY STORY</h2>
+        <p style="line-height: 1.7; color: #444; margin-bottom: 16px;">
+          我平時熱愛運動、唱歌與聽音樂，這些都是我生活中不可或缺的一部分。每天晚上，我都會到操場跑步，讓自己放鬆身心。跑步的過程中，我喜歡戴上耳機聽音樂，那是一種專屬於自己的療癒時光。
+        </p>
+        <p style="line-height: 1.7; color: #444;">
+          在眾多音樂中，周杰倫的歌曲陪伴了我無數個夜晚。他是我最喜歡的歌手，他的每一首歌我幾乎都能琅琅上口。無論是輕快的旋律還是深情的歌詞，總能在不同心情下帶來共鳴。運動時搭配音樂，不只讓節奏更輕快，也讓每一次奔跑都充滿力量。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio">
+  <h2 style="font-size: 24px; margin-bottom: 10px;">FOLLOW ME <span style="color:#666">@maygallery</span> →</h2>
+
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 30px;">
+    <div class="card" onclick="toggleDetail('detail1')">
+      <img src="作品1.png" alt="作品1" style="width: 180px; height: 180px; object-fit: cover;">
+      <div id="detail1" class="detail" style="display: none; padding: 10px;">
+        <p>這是作品一的介紹：臉部偵測系統，使用 OpenCV 即時標記五官。</p>
+      </div>
+    </div>
+
+    <div class="card" onclick="toggleDetail('detail2')">
+      <img src="作品2.png" alt="作品2" style="width: 180px; height: 180px; object-fit: cover;">
+      <div id="detail2" class="detail" style="display: none; padding: 10px;">
+        <p>這是作品二：手肘彎曲偵測，能夠計算次數，應用在運動與復健。</p>
+      </div>
+    </div>
+
+    <div class="card" onclick="toggleDetail('detail3')">
+      <img src="PHONE.png" alt="作品3" style="width: 180px; height: 180px; object-fit: cover;">
+      <div id="detail3" class="detail" style="display: none; padding: 10px;">
+        <p>這是作品三：物品辨識，透過 Teachable Machine 識別日常物品。</p>
+      </div>
+    </div>
+
+
+  </div>
+  </section>
+
+
+  <div id="project4" class="project-detail" style="display:none; margin-top:40px;">
+    <h3>作品4：情緒點歌系統</h3>
+    <img src="project4-full.jpg" style="width:100%; max-width:600px;">
+    <p>輸入你的心情，我會推薦一首最貼近你的周杰倫歌曲！</p>
+  </div>
+</section>
+
+<!-- ... project3 / project4 類似結構 ... -->
+
+
+  <section id="contact">
+    <div class="box">
+      <div style="background-color: #1a1a1a; padding: 20px 30px;">
+        <h2 style="color: white; font-size: 24px;">GET IN TOUCH</h2>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; padding: 40px; background-color: #fdfdfd;">
+        <div style="flex: 2; min-width: 280px; margin-right: 40px;">
+          <label for="name">姓名：</label><br>
+          <input type="text" id="name" name="name" placeholder="輸入您的姓名"><br>
+          <label for="email">電子信箱：</label><br>
+          <input type="email" id="email" name="email" placeholder="輸入您的信箱"><br>
+          <label for="message">訊息內容：</label><br>
+          <textarea id="message" name="message" rows="5" placeholder="請輸入您的訊息"></textarea>
+        </div>
+        <div style="flex: 1; min-width: 250px;">
+          <h4>服務資訊</h4>
+          <p>📍 台灣科技大學</p>
+          <p>📧 may@example.com</p>
+          <p>🕐 星期一至五 10:00 - 18:00</p>
+          <button style="margin-top: 20px; padding: 10px 20px; background-color: #b5c8a5; color: white; border: none; font-weight: bold; cursor: pointer;">
+            送出表單
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section id="website" style="background-color:#f6f6f6; padding: 100px 30px; text-align: center;">
+  <h2 style="font-size: 26px; color: #222;">個人網站</h2>
+  <p style="color: #555;">這是我製作的周杰倫情緒點歌系統，點擊圖片即可前往！</p>
+  <a href="https://jaymusic-f6emgdl7cf3vs3pht63sbl.streamlit.app/" target="_blank">
+    <img src="20241207000151M.jpg" alt="個人網站預覽圖" style="margin-top: 20px; width: 90%; max-width: 600px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+  </a>
+</section>
+
+<script>
+function toggleDetail(id) {
+  const all = document.querySelectorAll('.detail');
+  all.forEach(div => {
+    if (div.id === id) {
+      // toggle 開關
+      div.style.display = (div.style.display === 'block') ? 'none' : 'block';
+    } else {
+      div.style.display = 'none';
+    }
+  });
+}
+</script>
+
+
+</body>
+</html>
+
+
