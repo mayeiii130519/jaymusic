@@ -1,4 +1,3 @@
-# 周杰倫情緒點歌系統（不含 snownlp，適用 Streamlit Cloud 部署）
 import streamlit as st
 import random
 import openai
@@ -77,7 +76,7 @@ def gpt_emotion_classifier(text):
     except:
         return rule_based_emotion_classifier(text)
 
-# --- 簡化版規則備援 ---
+# --- 簡化版規則法 ---
 def rule_based_emotion_classifier(text):
     text = text.lower()
     if any(word in text for word in ["愛", "喜歡", "戀愛", "幸福"]):
@@ -95,7 +94,7 @@ def rule_based_emotion_classifier(text):
     else:
         return "平淡"
 
-# --- 建議語句 ---
+# --- 建議語句生成 ---
 def gpt_emotion_suggestion(text, emotion):
     prompt = f"你是一位溫暖的 AI 心情導師，使用者剛剛輸入了以下文字：「{text}」，我們判斷他現在的心情是「{emotion}」。請用一句親切的中文話語給出簡短鼓勵或陪伴建議，語氣自然、不要說你是 AI，也不要重複情緒詞。"
     try:
@@ -153,3 +152,37 @@ if st.session_state.last_emotion and st.button("🎲 再推薦一首"):
     except:
         st.warning("⚠️ 無法嵌入影片播放，請點下方連結觀看：")
     st.markdown(f"[▶️ 點我播放歌曲]({another_song['youtube']})", unsafe_allow_html=True)
+
+# --- 猜歌小遊戲區塊 ---
+st.markdown("---")
+st.subheader("🎮 周杰倫猜歌挑戰（可選玩）")
+st.write("根據下方歌詞片段猜出是哪一首周杰倫的歌～")
+
+all_songs = [song for songs in emotion_song_map.values() for song in songs]
+
+if 'quiz_song' not in st.session_state:
+    st.session_state.quiz_song = random.choice(all_songs)
+if 'answer_revealed' not in st.session_state:
+    st.session_state.answer_revealed = False
+
+st.markdown(f"📜 歌詞提示： _{st.session_state.quiz_song['lyrics']}_")
+guess = st.text_input("你猜這是哪一首歌？")
+
+if st.button("✅ 送出你的答案"):
+    correct = st.session_state.quiz_song["title"]
+    if guess.strip() == "":
+        st.warning("請輸入歌名再提交喔～")
+    elif guess.strip() == correct:
+        st.success(f"🎉 答對啦！這首是《{correct}》！")
+        st.session_state.answer_revealed = True
+    else:
+        st.error("答錯了，再試一次或看答案吧！")
+
+if st.button("🤔 看答案"):
+    st.info(f"✅ 正確答案是：**《{st.session_state.quiz_song['title']}》**")
+    st.session_state.answer_revealed = True
+
+if st.session_state.answer_revealed and st.button("🎲 換一題"):
+    st.session_state.quiz_song = random.choice(all_songs)
+    st.session_state.answer_revealed = False
+    st.experimental_rerun()
