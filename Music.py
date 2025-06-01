@@ -185,4 +185,5 @@ if st.button("🤔 看答案"):
 if st.session_state.answer_revealed and st.button("🎲 換一題"):
     st.session_state.quiz_song = random.choice(all_songs)
     st.session_state.answer_revealed = False
-    st.experimental_rerun()
+    st.rerun()  # ✅ 改這行
+
